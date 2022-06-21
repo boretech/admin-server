@@ -1,0 +1,63 @@
+{
+  "text": {
+    "plain": [
+      "txt"
+    ],
+    "html": [
+      "html",
+      "htm"
+    ],
+    "css": [
+      "css"
+    ],
+    "javascript": [
+      "js"
+    ]
+  },
+  "image": {
+    "jpeg": [
+      "jpg",
+      "jpeg"
+    ],
+    "png": [
+      "png"
+    ],
+    "gif": [
+      "gif"
+    ],
+    "webp": [
+      "webp"
+    ],
+    "x-icon": [
+      "ico"
+    ],
+    "svg+xml": [
+      "svg"
+    ]
+  },
+  "audio": {
+    "midi": [
+      "mid",
+      "midi"
+    ],
+    "mpeg": [
+      "mp3",
+      "mpg",
+      "mpeg"
+    ],
+    "ogg": [
+      "ogg"
+    ],
+    "wav": [
+      "wav"
+    ],
+    "webm": [
+      "webm"
+    ]
+  },
+  "video": {
+    "mpeg": [
+      "mp4"
+    ]
+  }
+}

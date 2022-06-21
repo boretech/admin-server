@@ -1,0 +1,26 @@
+{
+  "name": "admin-server",
+  "version": "0.0.1",
+  "description": "A modern admin server side code by simple JavaScript. 👑",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bin/index.js",
+    "orm:init": "pnpm exec prisma init",
+    "orm:migrate": "pnpm exec prisma migrate",
+    "orm:gen": "pnpm exec prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/cors": "^3.3.0",
+    "@koa/router": "^10.1.1",
+    "@prisma/client": "^3.15.2",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0"
+  },
+  "devDependencies": {
+    "prisma": "^3.15.2"
+  }
+}
