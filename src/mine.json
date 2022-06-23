@@ -1,63 +1,23 @@
 {
-  "text": {
-    "plain": [
-      "txt"
-    ],
-    "html": [
-      "html",
-      "htm"
-    ],
-    "css": [
-      "css"
-    ],
-    "javascript": [
-      "js"
-    ]
-  },
-  "image": {
-    "jpeg": [
-      "jpg",
-      "jpeg"
-    ],
-    "png": [
-      "png"
-    ],
-    "gif": [
-      "gif"
-    ],
-    "webp": [
-      "webp"
-    ],
-    "x-icon": [
-      "ico"
-    ],
-    "svg+xml": [
-      "svg"
-    ]
-  },
-  "audio": {
-    "midi": [
-      "mid",
-      "midi"
-    ],
-    "mpeg": [
-      "mp3",
-      "mpg",
-      "mpeg"
-    ],
-    "ogg": [
-      "ogg"
-    ],
-    "wav": [
-      "wav"
-    ],
-    "webm": [
-      "webm"
-    ]
-  },
-  "video": {
-    "mpeg": [
-      "mp4"
-    ]
-  }
+  "txt": "text/plain",
+  "html": "text/html",
+  "htm": "text/html",
+  "css": "text/css",
+  "js": "text/javascript",
+  "jpg": "image/jpeg",
+  "jpeg": "image/jpeg",
+  "png": "image/png",
+  "gif": "image/gif",
+  "webp": "image/webp",
+  "ico": "image/x-icon",
+  "svg": "image/svg+xml",
+  "mid": "audio/midi",
+  "midi": "audio/midi",
+  "mp3": "audio/mpeg",
+  "mpg": "audio/mpeg",
+  "mpeg": "audio/mpeg",
+  "ogg": "audio/ogg",
+  "wav": "audio/wav",
+  "webm": "audio/webm",
+  "mp4": "video/mpeg"
 }

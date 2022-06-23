@@ -1,32 +1,30 @@
 import { join } from 'path'
-import mine from './mine.json' assert {type: 'json'}
 import { stat, readFileSync } from 'fs'
+import mine from './mine.json' assert {type: 'json'}
 
 export const getStatic = (url, dir) => async (ctx, next) => {
   const { path } = ctx.request
-  console.log(url)
-  console.log(dir)
-  console.log(path)
-  if (path.startsWith(url)) {
-    const filePath = join(dir, path.substring(url.length))
+  let exName = path.split('.')[1]
+  if (exName || path === '/') {
+    let filePath = ''
+    if (exName) {
+      filePath = join(dir, path.substring(url.length))
+    } else {
+      exName = 'html'
+      filePath = join(dir, 'index.html')
+    }
     let fileExists = false
     try {
-      stat(filePath)
+      stat(filePath, () => {
+
+      })
       fileExists = true
     } catch (e) {
       console.error(e)
       fileExists = false
     }
 
-    let type = ''
-
-    for (let key in mine) {
-      for (let value of mine[key]) {
-        if (filePath.endsWith(value)) {
-          type = `${key}/${value}`
-        }
-      }
-    }
+    let type = mine[exName]
 
     if (fileExists) {
       ctx.response.type = type ? type : 'text/plain'

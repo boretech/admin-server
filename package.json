@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node bin/index.js",
+    "dev": "pnpm exec nodemon src/app.js",
     "orm:init": "pnpm exec prisma init",
     "orm:migrate": "pnpm exec prisma migrate",
     "orm:gen": "pnpm exec prisma generate"
@@ -21,6 +22,16 @@
     "koa-bodyparser": "^4.3.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.16",
     "prisma": "^3.15.2"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "watch": [
+      "src",
+      "prisma"
+    ],
+    "ignore": [],
+    "ext": "js,json"
   }
 }
