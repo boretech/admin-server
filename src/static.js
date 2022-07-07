@@ -1,6 +1,8 @@
-import { join } from 'path'
+import { join, resolve } from 'path'
 import { stat, readFileSync } from 'fs'
-import mine from './mine.json' assert {type: 'json'}
+// import mine from './mine.json' assert {type: 'json'}
+
+const mine = JSON.parse(readFileSync(resolve(process.cwd(), 'src/mine.json'), 'utf-8'))
 
 export const getStatic = (url, dir) => async (ctx, next) => {
   const { path } = ctx.request

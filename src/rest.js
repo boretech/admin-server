@@ -1,7 +1,3 @@
-
-
-let globalCode, globalMessage
-
 export const restify = (prefix) => {
   prefix = prefix || '/api/'
   return async (ctx, next) => {
@@ -26,10 +22,10 @@ export const restify = (prefix) => {
   }
 }
 
-export const APIError = (code, message) => {
-  globalCode = code || 'internal:unknown_error'
-  globalMessage = message || ''
-}
+export const APIError = (code, message) => ({
+  code: code || 'internal:unknown_error',
+  message: message || ''
+})
 
 export default {
   restify,

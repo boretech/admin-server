@@ -24,3 +24,5 @@ app.use(restify())
 app.use(controller())
 
 app.listen(3200)
+
+console.log('listening on port 3200...')
