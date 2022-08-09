@@ -8,7 +8,7 @@
     "start": "node bin/index.js",
     "dev": "pnpm exec nodemon src/app.js",
     "orm:init": "pnpm exec prisma init",
-    "orm:migrate": "pnpm exec prisma migrate",
+    "orm:migrate": "npx dotenv -e .env.local -- npx prisma migrate dev --name init",
     "orm:gen": "pnpm exec prisma generate"
   },
   "keywords": [],
@@ -22,7 +22,8 @@
     "koa-bodyparser": "^4.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16",
+    "dotenv-cli": "^6.0.0",
+    "nodemon": "2.0.19",
     "prisma": "^3.15.2"
   },
   "nodemonConfig": {

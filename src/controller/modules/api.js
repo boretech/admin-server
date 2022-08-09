@@ -12,6 +12,12 @@ const post_api = async (ctx, next) => {
   })
 }
 
+const add_user = async (ctx, next) => {
+  ctx.rest({
+    body: ctx.request.body
+  })
+}
+
 export default {
   'GET /api/test_api': test_api,
   'POST /api/post_api': post_api
