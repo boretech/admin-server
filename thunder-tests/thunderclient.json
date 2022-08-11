@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "6c987201-ba8c-4c3f-bf52-5321e0a2df35",
+    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
+    "containerId": "",
+    "name": "test_api",
+    "url": "localhost:3200/api/post_api",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-08-11T14:59:15.951Z",
+    "modified": "2022-08-11T15:00:24.419Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"test\": \"test ok!\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
