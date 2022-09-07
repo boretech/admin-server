@@ -4,16 +4,54 @@
     "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
     "containerId": "",
     "name": "test_api",
-    "url": "localhost:3200/api/post_api",
-    "method": "POST",
+    "url": "localhost:3200/api/test_api",
+    "method": "GET",
     "sortNum": 10000,
     "created": "2022-08-11T14:59:15.951Z",
-    "modified": "2022-08-11T15:00:24.419Z",
+    "modified": "2022-09-07T07:50:45.637Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"test\": \"test ok!\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "8e92785e-b7a6-4fa5-ba6d-6c9d681312cf",
+    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
+    "containerId": "",
+    "name": "post_api",
+    "url": "localhost:3200/api/post_api",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-09-07T07:50:29.970Z",
+    "modified": "2022-09-07T07:51:09.940Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"test\": \"post test ok!\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "eedaa4d5-cf0b-4a65-b0c7-23d2151a660a",
+    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
+    "containerId": "",
+    "name": "add_user",
+    "url": "localhost:3200/api/add_user",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-09-07T07:52:12.261Z",
+    "modified": "2022-09-07T07:52:48.843Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"user_name\": \"allen\",\n  \"age\": \"38\"\n}",
       "form": []
     },
     "tests": []
