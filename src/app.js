@@ -4,6 +4,8 @@ import controller from './controller/index.js'
 import { getStatic } from './static.js'
 import { restify } from './rest.js'
 import { join } from 'path'
+import jwt from 'koa-jwt'
+import { unlessList, secret } from './jwt/config.js'
 
 const app = new Koa()
 
@@ -18,6 +20,12 @@ app.use(async (ctx, next) => {
 app.use(getStatic('/', join(process.cwd(), '/static')))
 
 app.use(bodyParser())
+
+app.use(jwt({
+  secret,
+  cookie: 'Authorization',
+  debug: true
+}).unless({ path: unlessList }))
 
 app.use(restify())
 

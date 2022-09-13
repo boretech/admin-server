@@ -8,13 +8,22 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-08-11T14:59:15.951Z",
-    "modified": "2022-09-07T07:50:45.637Z",
-    "headers": [],
+    "modified": "2022-09-13T07:25:20.725Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsInBhc3MiOiJ0ZXN0IiwiaWF0IjoxNjYzMDUyMDM3LCJleHAiOjE2NjMwNTU2Mzd9.E6QID08kAa7HEOjjcGMSZGVtUPNyZHOAwaJFMyS0jB4",
+        "isDisabled": true
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"test\": \"test ok!\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer"
     },
     "tests": []
   },
@@ -52,6 +61,25 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"user_name\": \"allen\",\n  \"age\": \"38\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2e008246-aae6-4f58-b5de-a74be103e60e",
+    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
+    "containerId": "",
+    "name": "getToken",
+    "url": "localhost:3200/api/getToken",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2022-09-13T06:45:50.965Z",
+    "modified": "2022-09-13T06:49:26.566Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"userInfo\": {\n    \"name\": \"test\",\n    \"pass\": \"test\"\n  }\n}",
       "form": []
     },
     "tests": []
