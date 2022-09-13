@@ -9,7 +9,8 @@
     "dev": "pnpm exec nodemon src/app.js",
     "orm:init": "pnpm exec prisma init",
     "orm:migrate": "npx dotenv -e .env.local -- npx prisma migrate dev --name init",
-    "orm:gen": "pnpm exec prisma generate"
+    "orm:gen": "pnpm exec prisma generate",
+    "docs:gen": "npx apidoc -i src/controller/modules -o docs"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "koa-jwt": "^4.0.3"
   },
   "devDependencies": {
+    "apidoc": "^0.53.0",
     "dotenv-cli": "^6.0.0",
     "nodemon": "2.0.19",
     "prisma": "^3.15.2"

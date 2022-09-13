@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "prisma.prisma",
-    "rangav.vscode-thunder-client"
+    "rangav.vscode-thunder-client",
+    "myax.appidocsnippets"
   ]
 }

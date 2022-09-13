@@ -1,6 +1,17 @@
 import { APIError } from "../../rest.js"
 import { genToken } from "../../jwt/index.js"
 
+/**
+* @api {POST} /api/getToken 获取用户 token
+* @apiName 获取用户 token
+* @apiGroup 鉴权
+*
+* @apiParam {Object} userInfo 用户信息
+*
+* @apiSuccess {Boolean} success 请求状态 
+* @apiSuccess {String} token 返回的当前用户 token
+*/
+
 const getToken = async (ctx, next) => {
   const token = genToken(ctx.request.body.userInfo)
   // ctx.set("Authorization", `Bearer ${token}`)
@@ -18,6 +29,15 @@ const getToken = async (ctx, next) => {
 const checkToken = async (ctx, next) => {
 
 }
+
+/**
+* @api {GET} /api/test_api 测试 token
+* @apiName 测试 token
+* @apiGroup 测试
+*
+* @apiSuccess {Boolean} success 请求状态 
+* @apiSuccess {String} token 返回的当前用户 token
+*/
 
 const test_api = async (ctx, next) => {
   ctx.rest({
