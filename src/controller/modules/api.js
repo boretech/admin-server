@@ -14,10 +14,22 @@ import { genToken } from "../../jwt/index.js"
 * @apiName 获取用户 token
 * @apiGroup Author
 *
-* @apiParam {Object} userInfo 用户信息
+* @apiParam {Object} userInfo 用户信息 {name: string, email: string, password: string}
 *
-* @apiSuccess {Boolean} success 请求状态 
+* @apiSuccess {Boolean} success 请求状态 [true|false]
 * @apiSuccess {String} token 返回的当前用户 token
+* @apiSuccess {String} msg 请求信息
+* @apiSuccessExample {json} 请求成功
+* {
+*   success: true,
+*   token: '<Token String>',
+*   msg: '请求成功'
+* }
+* @apiSuccessExample {json} 请求失败
+* {
+*   success: false,
+*   msg: '请求失败'
+* }
 */
 
 const getToken = async (ctx, next) => {
