@@ -1,0 +1,9 @@
+{
+  "name": "Boretech API Docs",
+  "version": "0.1.0",
+  "description": "Boretech API Docs",
+  "apidoc": {
+    "title": "Boretech API Docs",
+    "url": "/"
+  }
+}

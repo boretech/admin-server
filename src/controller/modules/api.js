@@ -2,9 +2,17 @@ import { APIError } from "../../rest.js"
 import { genToken } from "../../jwt/index.js"
 
 /**
+ * @apiDefine Author 鉴权
+ */
+
+/**
+ * @apiDefine Test 测试
+ */
+
+/**
 * @api {POST} /api/getToken 获取用户 token
 * @apiName 获取用户 token
-* @apiGroup 鉴权
+* @apiGroup Author
 *
 * @apiParam {Object} userInfo 用户信息
 *
@@ -33,7 +41,7 @@ const checkToken = async (ctx, next) => {
 /**
 * @api {GET} /api/test_api 测试 token
 * @apiName 测试 token
-* @apiGroup 测试
+* @apiGroup Test
 *
 * @apiSuccess {Boolean} success 请求状态 
 * @apiSuccess {String} token 返回的当前用户 token
