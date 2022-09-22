@@ -1,6 +1,7 @@
 import { readdirSync } from 'fs'
 import { resolve } from 'path'
 import Router from '@koa/router'
+import { platform } from 'os'
 
 const router = new Router()
 
@@ -33,7 +34,7 @@ const addControllers = (router, dir) => {
     .filter(file => file.endsWith('.js'))
     .forEach(async file => {
       console.log(`Process controller: ${file}...`)
-      const mapping = await import(`file://${process.cwd()}/${dir}/${file}`)
+      const mapping = await import(`${platform() === 'win32' ? 'file://' : ''}${process.cwd()}/${dir}/${file}`)
       addMapping(router, mapping.default)
     })
 }

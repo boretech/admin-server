@@ -5,7 +5,10 @@ export const unlessList = [
 
 export const secret = 'boretech_server_secret'
 
+export const expiresIn = 7200
+
 export default {
   secret,
+  expiresIn,
   unlessList
 }

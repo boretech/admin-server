@@ -1,5 +1,6 @@
 import { APIError } from "../../rest.js"
 import { genToken } from "../../jwt/index.js"
+import { expiresIn } from '../../jwt/config.js'
 
 /**
  * @apiDefine Author 鉴权
@@ -36,7 +37,12 @@ const getToken = async (ctx, next) => {
   console.log(ctx.request.body)
   const token = genToken(ctx.request.body)
   // ctx.set("Authorization", `Bearer ${token}`)
-  ctx.rest({ token, createdAt: new Date().getTime(), expiresIn: 7200 })
+  ctx.rest({
+    code: 200,
+    success: true,
+    data: { token, createdAt: new Date().getTime(), expiresIn },
+    msg: '请求成功'
+  })
 
   await next()
   // try {
