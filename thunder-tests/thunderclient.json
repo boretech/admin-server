@@ -74,12 +74,12 @@
     "method": "POST",
     "sortNum": 60000,
     "created": "2022-09-13T06:45:50.965Z",
-    "modified": "2022-09-13T06:49:26.566Z",
+    "modified": "2022-09-22T09:16:20.775Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"userInfo\": {\n    \"name\": \"test\",\n    \"pass\": \"test\"\n  }\n}",
+      "raw": "{\n  \"username\": \"testUser\",\n  \"password\": \"shouldBeAMD5String\"\n}",
       "form": []
     },
     "tests": []

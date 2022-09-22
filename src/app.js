@@ -21,6 +21,22 @@ app.use(getStatic('/', join(process.cwd(), '/static')))
 
 app.use(bodyParser())
 
+app.use((ctx, next) => {
+  return next().catch((err) => {
+    if (err.status === 401) {
+      ctx.response.status = 200
+      ctx.response.type = 'application/json'
+      ctx.response.body = {
+        success: false,
+        code: 401,
+        message: '未授权'
+      }
+    } else {
+      throw err
+    }
+  })
+})
+
 app.use(jwt({
   secret,
   cookie: 'Authorization',
@@ -33,4 +49,5 @@ app.use(controller())
 
 app.listen(3200)
 
+console.log(process.env.NODE_ENV)
 console.log('listening on port 3200...')

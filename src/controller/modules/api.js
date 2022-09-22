@@ -33,9 +33,10 @@ import { genToken } from "../../jwt/index.js"
 */
 
 const getToken = async (ctx, next) => {
-  const token = genToken(ctx.request.body.userInfo)
+  console.log(ctx.request.body)
+  const token = genToken(ctx.request.body)
   // ctx.set("Authorization", `Bearer ${token}`)
-  ctx.rest({ token })
+  ctx.rest({ token, createdAt: new Date().getTime(), expiresIn: 7200 })
 
   await next()
   // try {

@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node bin/index.js",
-    "dev": "pnpm exec nodemon src/app.js",
+    "start": "cross-env NODE_ENV=production node bin/index.js",
+    "dev": "cross-env NODE_ENV=development pnpm exec nodemon src/app.js",
     "orm:init": "pnpm exec prisma init",
     "orm:migrate": "npx dotenv -e .env.local -- npx prisma migrate dev --name init",
     "orm:gen": "pnpm exec prisma generate",
@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@koa/cors": "^3.3.0",
+    "@koa/cors": "^3.4.1",
     "@koa/router": "^10.1.1",
     "@prisma/client": "^3.15.2",
     "jsonwebtoken": "^8.5.1",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "apidoc": "^0.53.0",
+    "cross-env": "^7.0.3",
     "dotenv-cli": "^6.0.0",
     "nodemon": "2.0.19",
     "prisma": "^3.15.2"
