@@ -1,4 +1,4 @@
-export const unlessList = [
+export const withoutToken = [
   '/api/getToken',
   '/api/test_api'
 ]
@@ -10,5 +10,5 @@ export const expiresIn = 7200
 export default {
   secret,
   expiresIn,
-  unlessList
+  withoutToken
 }

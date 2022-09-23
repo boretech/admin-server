@@ -1,5 +1,15 @@
 import sign from 'jsonwebtoken/sign.js'
-import { secret, expiresIn } from './config.js'
+
+// controller 中的 public module 默认添加到该列表中
+// 其他的接口可手动添加到数组中
+export const withoutToken = [
+  '/api/getToken',
+  '/api/test_api'
+]
+
+export const secret = 'boretech_server_secret'
+
+export const expiresIn = 60 * 60 * 24 * 1
 
 export const genToken = userInfo => sign(userInfo, secret, { expiresIn })
 
@@ -18,4 +28,10 @@ export const unauthorized = (ctx, next) => {
       throw err
     }
   })
+}
+
+export default {
+  secret,
+  expiresIn,
+  withoutToken
 }

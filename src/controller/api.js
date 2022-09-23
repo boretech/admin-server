@@ -1,6 +1,6 @@
-import { APIError } from "../../rest.js"
-import { genToken } from "../../jwt/index.js"
-import { expiresIn } from '../../jwt/config.js'
+import { APIError } from "../rest.js"
+import { genToken } from "../jwt/index.js"
+import { expiresIn } from '../jwt/config.js'
 
 /**
  * @apiDefine Author 鉴权
@@ -34,6 +34,10 @@ import { expiresIn } from '../../jwt/config.js'
 */
 
 const getToken = async (ctx, next) => {
+  // ctx.response.status = 400;
+  throw new Error({
+    status: 400
+  })
   console.log(ctx.request.body)
   const token = genToken(ctx.request.body)
   // ctx.set("Authorization", `Bearer ${token}`)
@@ -67,9 +71,13 @@ const checkToken = async (ctx, next) => {
 */
 
 const test_api = async (ctx, next) => {
-  ctx.rest({
+  // ctx.rest({
+  //   testData: 'test ok!'
+  // })
+  ctx.response.body = {
     testData: 'test ok!'
-  })
+  }
+  await next()
 }
 
 const post_api = async (ctx, next) => {
