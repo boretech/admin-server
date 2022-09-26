@@ -1,4 +1,3 @@
-import { APIError } from "../rest.js"
 import { genToken } from "../jwt/index.js"
 import { expiresIn } from '../jwt/config.js'
 
