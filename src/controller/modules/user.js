@@ -41,24 +41,40 @@ import prisma from '../../lib/prisma.js'
 */
 
 const register = async (ctx, next) => {
-  console.log(ctx.request.body)
   const { username, password, email } = ctx.request.body
-  const existUser = await prisma.user.findFirst({
+  const existUser = await prisma.User.findFirst({
     where: {
-      username
+      OR: [
+        { username },
+        { email }
+      ]
     }
   })
+  console.log(existUser)
   if (existUser) {
     ctx.response.body = {
       success: false,
       code: 200,
-      message: '该用户名已注册',
+      message: `${existUser.username === username ? '用户名' : '邮箱'}已注册`,
       data: null
     }
   } else {
-
+    const createdUser = await prisma.User.create({
+      data: {
+        username,
+        password,
+        email
+      }
+    })
+    ctx.response.body = {
+      success: true,
+      data: {
+        id: createdUser.id
+      },
+      code: 200,
+      message: "注册成功"
+    }
   }
-  // ctx.response.body = existUser
   await next()
 }
 
