@@ -1,90 +1,5 @@
 [
   {
-    "_id": "6c987201-ba8c-4c3f-bf52-5321e0a2df35",
-    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
-    "containerId": "",
-    "name": "test_api",
-    "url": "localhost:3200/api/test_api",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2022-08-11T14:59:15.951Z",
-    "modified": "2022-09-23T07:16:25.749Z",
-    "headers": [
-      {
-        "name": "Authorization",
-        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsInBhc3MiOiJ0ZXN0IiwiaWF0IjoxNjYzMDUyMDM3LCJleHAiOjE2NjMwNTU2Mzd9.E6QID08kAa7HEOjjcGMSZGVtUPNyZHOAwaJFMyS0jB4",
-        "isDisabled": true
-      }
-    ],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"test\": \"test ok!\"\n}",
-      "form": []
-    },
-    "auth": {
-      "type": "bearer"
-    },
-    "tests": []
-  },
-  {
-    "_id": "8e92785e-b7a6-4fa5-ba6d-6c9d681312cf",
-    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
-    "containerId": "",
-    "name": "post_api",
-    "url": "localhost:3200/api/post_api",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-09-07T07:50:29.970Z",
-    "modified": "2022-09-07T07:51:09.940Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"test\": \"post test ok!\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "eedaa4d5-cf0b-4a65-b0c7-23d2151a660a",
-    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
-    "containerId": "",
-    "name": "add_user",
-    "url": "localhost:3200/api/add_user",
-    "method": "POST",
-    "sortNum": 50000,
-    "created": "2022-09-07T07:52:12.261Z",
-    "modified": "2022-09-07T07:52:48.843Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"user_name\": \"allen\",\n  \"age\": \"38\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "2e008246-aae6-4f58-b5de-a74be103e60e",
-    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
-    "containerId": "",
-    "name": "getToken",
-    "url": "localhost:3200/api/getToken",
-    "method": "POST",
-    "sortNum": 60000,
-    "created": "2022-09-13T06:45:50.965Z",
-    "modified": "2022-09-22T09:16:20.775Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"username\": \"testUser\",\n  \"password\": \"shouldBeAMD5String\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
     "_id": "908ab0ef-fb1b-41de-8479-eb7004fe9b87",
     "colId": "0d673a1d-f36d-47ca-96ed-24138ea916bb",
     "containerId": "",
@@ -132,6 +47,43 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"username\": \"username\",\n  \"password\": \"abcdefghijklmnopqrstuvwxyz\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e5e87bdd-d534-460b-84af-c8066231caea",
+    "colId": "8a41be1c-22b5-447a-928f-393e406c332a",
+    "containerId": "",
+    "name": "checkToken",
+    "url": "http://127.0.0.1:3200/api/checkToken",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2022-09-28T09:06:04.512Z",
+    "modified": "2022-09-28T09:11:21.619Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIiwicGFzc3dvcmQiOiJhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5eiIsImlhdCI6MTY2NDM1NjI2NSwiZXhwIjoxNjY0MzU2Mjc1fQ.ROB3DYSjS6dVWAvpC74Av8C1_u1niic76Lc6H_6S8zs"
+    },
+    "tests": []
+  },
+  {
+    "_id": "96eae173-dc71-4e2d-99d9-343d9f59960b",
+    "colId": "7310b5e0-921a-4877-b7a8-8c651ceb7c9b",
+    "containerId": "",
+    "name": "register",
+    "url": "http://127.0.0.1:3200/api/register",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-09-28T09:21:30.028Z",
+    "modified": "2022-09-28T09:30:58.701Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\": \"username\",\n  \"password\": \"abcdefghijklmnopqrstuvwxyz\",\n  \"email\": \"sample@example.com\"\n}",
       "form": []
     },
     "tests": []

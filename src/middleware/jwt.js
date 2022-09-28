@@ -12,6 +12,7 @@ export const withoutTokenList = [
 export const secret = 'boretech_server_secret'
 
 export const expiresIn = 60 * 60 * 24 * 1
+// export const expiresIn = 10
 
 export const createWithoutToken = () => {
   const modules = Object.keys(publicAPI).map(item => item.split(' ')[1])
@@ -20,11 +21,7 @@ export const createWithoutToken = () => {
 
 export const genToken = userInfo => sign(userInfo, secret, { expiresIn })
 
-export const verifyToken = (token) => verify(token, secret)
-
-export const checkToken = async (ctx, next) => {
-
-}
+export const verifyToken = (ctx) => verify(ctx.request.headers.authorization.split(' ')[1], secret)
 
 export const unauthorized = async (ctx, next) => {
   try {

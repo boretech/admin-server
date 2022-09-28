@@ -1,5 +1,5 @@
-import { genToken, expiresIn, verifyToken } from '../../middleware/jwt.js'
-
+import { genToken, expiresIn } from '../../middleware/jwt.js'
+import prisma from '../../lib/prisma.js'
 /**
  * @apiDefine User 用户
  */
@@ -41,7 +41,25 @@ import { genToken, expiresIn, verifyToken } from '../../middleware/jwt.js'
 */
 
 const register = async (ctx, next) => {
+  console.log(ctx.request.body)
+  const { username, password, email } = ctx.request.body
+  const existUser = await prisma.user.findFirst({
+    where: {
+      username
+    }
+  })
+  if (existUser) {
+    ctx.response.body = {
+      success: false,
+      code: 200,
+      message: '该用户名已注册',
+      data: null
+    }
+  } else {
 
+  }
+  // ctx.response.body = existUser
+  await next()
 }
 
 /**
@@ -106,13 +124,7 @@ const login = async (ctx, next) => {
   await next()
 }
 
-const checkToken = async (ctx, next) => {
-  console.log(ctx.request.headers.authorization)
-  console.log(verifyToken(ctx.request.headers.authorization.split(' ')[1]))
-}
-
-
 export default {
   'POST /api/register': register,
-  'POST /api/login': login,
+  'POST /api/login': login
 }

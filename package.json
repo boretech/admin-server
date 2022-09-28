@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=production node bin/index.js",
-    "dev": "cross-env NODE_ENV=development pnpm exec nodemon src/app.js",
+    "dev": "npx dotenv -e .env.local cross-env NODE_ENV=development pnpm exec nodemon src/app.js",
     "orm:init": "pnpm exec prisma init",
     "orm:migrate": "npx dotenv -e .env.local -- npx prisma migrate dev --name init",
     "orm:gen": "pnpm exec prisma generate",
