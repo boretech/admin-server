@@ -41,7 +41,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-09-26T08:45:27.059Z",
-    "modified": "2022-09-26T08:49:19.322Z",
+    "modified": "2022-09-29T06:47:15.575Z",
     "headers": [],
     "params": [],
     "body": {
@@ -78,13 +78,31 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-09-28T09:21:30.028Z",
-    "modified": "2022-09-28T14:50:29.581Z",
+    "modified": "2022-09-29T06:39:30.580Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"username\": \"username\",\n  \"password\": \"abcdefghijklmnopqrstuvwxyz\",\n  \"email\": \"sample@example.com\"\n}",
       "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "032bcbe1-cecc-4e9d-9b48-f7c14a9eb833",
+    "colId": "7310b5e0-921a-4877-b7a8-8c651ceb7c9b",
+    "containerId": "",
+    "name": "getUserInfo",
+    "url": "http://127.0.0.1:3200/api/getUserInfo",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-09-29T07:00:14.432Z",
+    "modified": "2022-09-29T07:00:46.704Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzYW1wbGVAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InVzZXJuYW1lIiwicGFzc3dvcmQiOiJhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5eiIsImlhdCI6MTY2NDQzNDAzOCwiZXhwIjoxNjY0NTIwNDM4fQ.IQ9f8MjUgHLQz2w4pCUme6ZOE09plP_I4IMugyAGvXc"
     },
     "tests": []
   }

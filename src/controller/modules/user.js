@@ -1,4 +1,4 @@
-import { genToken, expiresIn } from '../../middleware/jwt.js'
+import { genToken, expiresIn, verifyToken } from '../../middleware/jwt.js'
 import prisma from '../../lib/prisma.js'
 /**
  * @apiDefine User 用户
@@ -50,7 +50,6 @@ const register = async (ctx, next) => {
       ]
     }
   })
-  console.log(existUser)
   if (existUser) {
     ctx.response.body = {
       success: false,
@@ -122,25 +121,93 @@ const register = async (ctx, next) => {
 const login = async (ctx, next) => {
   // 检查 body
   // console.log(ctx.request.body)
+  const { username, password } = ctx.request.body
+  // console.log(username)
+  const existUser = await prisma.User.findFirst({
+    where: {
+      username
+    }
+  })
 
-  const token = genToken(ctx.request.body)
-  if (token) {
-    ctx.response.body = {
-      success: true,
-      code: 200,
-      message: '登录成功',
-      data: {
-        token,
-        expiresIn,
-        createdAt: new Date().getTime()
+  if (existUser) {
+    if (existUser.password === password) {
+      const token = genToken(existUser)
+      if (token) {
+        ctx.response.body = {
+          success: true,
+          code: 200,
+          message: '登录成功',
+          data: {
+            token,
+            expiresIn,
+            createdAt: new Date().getTime()
+          }
+        }
+      }
+    } else {
+      ctx.response.body = {
+        success: false,
+        code: 200,
+        message: '登录密码不正确',
+        data: null
       }
     }
+  } else {
+    ctx.response.body = {
+      success: false,
+      code: 200,
+      message: '该用户未注册',
+      data: null
+    }
   }
+  await next()
+}
 
+/**
+* @api {GET} /api/getUserInfo 获取用户信息
+* @apiName 获取用户信息
+* @apiVersion 0.1.0
+* @apiGroup User
+*
+* @apiHeader {String} Authorization 以 Bearer 开始的用户 token
+*
+* @apiSuccess {Boolean} success 请求是否成功 true | false
+* @apiSuccess {String} message 请求附带信息 “请求成功”
+* @apiSuccess {Number} code 请求返回状态码 200
+* @apiSuccess {Object} data 返回的数据
+* @apiSuccess {String} data.uid 用户 id
+* @apiSuccess {Number} data.email 用户邮箱
+* @apiSuccess {Number} data.username 用户名
+* @apiSuccessExample {json} 成功的返回
+* {
+*  "success": true,
+*  "data": {
+*     "uid": 1,
+*     "email": "sample@example.com",
+*     "username": "username"
+*   },
+*   "code": 200,
+*   "message": "请求成功"
+* }
+* @apiErrorExample {json} 失败的返回
+* {
+*  "success": false,
+*  "data": null,
+*   "code": 401,
+*   "message": "未获取到用户信息"
+* }
+*/
+
+const getUserInfo = async (ctx, next) => {
+  const userInfo = verifyToken(ctx)
+  // console.log(userInfo)
+  const { password, iat, exp, ...info } = userInfo
+  ctx.response.body = info
   await next()
 }
 
 export default {
   'POST /api/register': register,
-  'POST /api/login': login
+  'POST /api/login': login,
+  'GET /api/getUserInfo': getUserInfo,
 }
